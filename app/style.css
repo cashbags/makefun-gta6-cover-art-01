@@ -1,0 +1,39 @@
+/* Neon Sunset Cover Studio — dark editor, neon accents, cream gutters. */
+html, body { margin: 0; min-height: 100%; background: #14101d; color: #f2ecff; font: 15px/1.45 "Noto Sans", "Liberation Sans", system-ui, sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 24px; box-sizing: border-box; }
+.controls { display: flex; flex-direction: column; gap: 12px; width: 320px; flex: none; }
+.controls h1 { margin: 0; font-size: 30px; line-height: 1.05; font-weight: 900; letter-spacing: -0.5px; }
+.controls h1 span { display: block; color: #ff2e88; }
+.tagline { margin: 0; color: #b9aecf; }
+.controls h2 { margin: 10px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: #ffb347; }
+.panel-card { border: 1px solid #3a2f52; border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; background: #1d1730; }
+.panel-card h3 { margin: 0; font-size: 14px; }
+.row { display: flex; gap: 8px; align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+.hint { margin: 0; color: #8f84ab; font-size: 13px; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+input[type=text], select { font: inherit; padding: 9px 10px; border: 1px solid #4a3f66; border-radius: 8px; background: #241d3a; color: #f2ecff; }
+input[type=range] { width: 100%; accent-color: #ff2e88; }
+button { font: inherit; font-weight: 700; padding: 9px 12px; border: 1px solid #4a3f66; border-radius: 8px; background: #2a2144; color: #f2ecff; cursor: pointer; }
+button:hover { border-color: #ff2e88; }
+button.active { background: #ff2e88; border-color: #ff2e88; color: #fff; }
+.upload { flex-direction: row; align-items: center; gap: 6px; border: 1px dashed #4a3f66; border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+.upload input { display: none; }
+#export { background: linear-gradient(90deg, #ff7e5f, #ff2e88); border: 0; padding: 13px; font-size: 16px; }
+#status { margin: 0; color: #8f84ab; min-height: 1.4em; font-size: 13px; }
+.preview { position: sticky; top: 24px; display: flex; justify-content: center; }
+canvas { width: min(78vh, 62vw); height: auto; max-height: 92vh; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55); border-radius: 4px; background: #2b1838; touch-action: none; cursor: grab; }
+canvas:active { cursor: grabbing; }
+#shot-img { display: none; }
+/* Screenshot mode: only the exported cover, edge to edge. */
+body.shot-cover { background: #0d0a14; }
+body.shot-cover .app { padding: 0; gap: 0; display: block; }
+body.shot-cover .controls, body.shot-cover canvas { display: none; }
+body.shot-cover .preview { position: static; display: block; }
+body.shot-cover #shot-img { display: block; width: 100vw; height: 100vh; object-fit: contain; }
+@media (max-width: 900px) {
+  .app { flex-direction: column; align-items: center; }
+  .controls { width: min(94vw, 480px); }
+  .preview { position: static; }
+  canvas { width: min(94vw, 70vh); }
+}
