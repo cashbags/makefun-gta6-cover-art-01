@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Sunset Cover Studio — GTA-style cover art maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>Neon Sunset <span>Cover Studio</span></h1>
+    <p class="tagline">Your photo, a caption, and a Vice City sunset — a poster-style cover, exported as a PNG. Photos never leave this machine.</p>
+
+    <h2>Photos — one per panel</h2>
+    <div class="panel-card" data-panel="0">
+      <h3>Panel 1</h3>
+      <div class="row">
+        <button type="button" data-sample="pier">Pier</button>
+        <button type="button" data-sample="boulevard">Boulevard</button>
+        <label class="upload">Upload <input type="file" accept="image/*"></label>
+      </div>
+      <label>Zoom <input type="range" data-zoom="0" min="0.8" max="2.5" step="0.05" value="1.15"></label>
+      <button type="button" data-fill-all>Use in all panels</button>
+    </div>
+    <div class="panel-card" data-panel="1">
+      <h3>Panel 2</h3>
+      <div class="row">
+        <button type="button" data-sample="pier">Pier</button>
+        <button type="button" data-sample="boulevard">Boulevard</button>
+        <label class="upload">Upload <input type="file" accept="image/*"></label>
+      </div>
+      <label>Zoom <input type="range" data-zoom="1" min="0.8" max="2.5" step="0.05" value="1.15"></label>
+      <button type="button" data-fill-all>Use in all panels</button>
+    </div>
+    <div class="panel-card" data-panel="2">
+      <h3>Panel 3</h3>
+      <div class="row">
+        <button type="button" data-sample="pier">Pier</button>
+        <button type="button" data-sample="boulevard">Boulevard</button>
+        <label class="upload">Upload <input type="file" accept="image/*"></label>
+      </div>
+      <label>Zoom <input type="range" data-zoom="2" min="0.8" max="2.5" step="0.05" value="1.15"></label>
+      <button type="button" data-fill-all>Use in all panels</button>
+    </div>
+    <p class="hint">Drag the preview to move a photo inside its panel; scroll over it to zoom.</p>
+
+    <h2>Caption</h2>
+    <label>Title <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
+    <label>Subtitle <input id="subtitle" type="text" maxlength="40" value="Vice City • 2026"></label>
+    <label>Title position
+      <select id="title-pos">
+        <option value="bottom" selected>Bottom</option>
+        <option value="top">Top</option>
+      </select>
+    </label>
+
+    <h2>Look</h2>
+    <div class="row wrap" role="group" aria-label="Layout">
+      <button type="button" data-layout="trio" class="active">Trio</button>
+      <button type="button" data-layout="hero">Hero</button>
+      <button type="button" data-layout="solo">Solo</button>
+    </div>
+    <div class="row wrap" role="group" aria-label="Colour grade">
+      <button type="button" data-grade="sunset" class="active">Sunset</button>
+      <button type="button" data-grade="neon">Neon Nights</button>
+      <button type="button" data-grade="palm">Palm Gold</button>
+      <button type="button" data-grade="mono">Mono</button>
+    </div>
+    <label>Panel borders
+      <select id="gutter">
+        <option value="#f7f1e3" selected>Cream</option>
+        <option value="#14101d">Midnight</option>
+        <option value="#ff2e88">Hot pink</option>
+      </select>
+    </label>
+
+    <h2>Export</h2>
+    <label>Post size
+      <select id="size">
+        <option value="1080x1080" selected>Square — 1080 × 1080</option>
+        <option value="1080x1350">Portrait — 1080 × 1350</option>
+        <option value="1920x1080">Wide — 1920 × 1080</option>
+      </select>
+    </label>
+    <button id="export" type="button">Export PNG</button>
+    <p id="status" role="status"></p>
+  </section>
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+    <img id="shot-img" alt="The exported cover" hidden>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
